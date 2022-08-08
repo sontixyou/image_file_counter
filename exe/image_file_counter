@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
 require "image_file_counter"
+
+ImageFileCounterUtils::CLI.start  # この行を追加

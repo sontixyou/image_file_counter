@@ -1,0 +1,23 @@
+PATH
+  remote: .
+  specs:
+    image_file_counter (0.1.0)
+      thor
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    minitest (5.16.2)
+    rake (13.0.6)
+    thor (1.2.1)
+
+PLATFORMS
+  arm64-darwin-21
+
+DEPENDENCIES
+  image_file_counter!
+  minitest (~> 5.0)
+  rake (~> 13.0)
+
+BUNDLED WITH
+   2.3.19
