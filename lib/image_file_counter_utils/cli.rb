@@ -1,4 +1,4 @@
-require "image_file_counter"
+require "image_file_counter/core/get_files"
 require "thor"
 
 module ImageFileCounterUtils
@@ -26,6 +26,12 @@ module ImageFileCounterUtils
     def get_image_files
       files_name = ImageFileCounter::Core.get_files_name
       puts ImageFileCounter::Core.select_image_files(files_name)
+    end
+
+    desc "view_files_and_ruby_files", "get view files and ruby files"
+    def get_view_files_and_ruby_files
+      files_name = ImageFileCounter::Core.get_files_name
+      ImageFileCounter::Core.select_view_files_and_ruby_files(files_name)
     end
   end
 end
