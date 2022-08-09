@@ -21,5 +21,11 @@ module ImageFileCounterUtils
     def get_files_name
       file_name_array = ImageFileCounter::Core.get_files_name
     end
+
+    desc "get_images_files", "get image files"
+    def get_image_files
+      files_name = ImageFileCounter::Core.get_files_name
+      puts ImageFileCounter::Core.select_image_files(files_name)
+    end
   end
 end

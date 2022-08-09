@@ -10,5 +10,13 @@
       file_name_array
     end
 
+    def self.select_image_files(files_path)
+      return ['nothings'] if files_path.nil?
+
+      select_image_files = files_path.select{|file| file.include?(".jpeg") || file.include?(".jpg") || file.include?(".png") || file.include?(".svg")}
+      return "image files count is 0" if select_image_files.count.zero?
+
+      select_image_files
+    end
   end
 end
