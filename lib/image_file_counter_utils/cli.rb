@@ -16,5 +16,10 @@ module ImageFileCounterUtils
         .tr("-", "_")
         .downcase
     end
+
+    desc "get_files_name", "get files"
+    def get_files_name
+      file_name_array = ImageFileCounter::Core.get_files_name
+    end
   end
 end
