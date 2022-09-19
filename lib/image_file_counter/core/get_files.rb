@@ -54,10 +54,9 @@ module ImageFileCounter
         image_count = 0
         view_files_path.each do |file_path|
           command = "rg \"#{image}\" #{file_path}"
-          puts command
+
           stdout, stderr, status = Open3.capture3(command)
           image_count += stdout.split("\n").count
-          puts image_count
         end
         result = { image => image_count }
       end
