@@ -33,9 +33,6 @@ module ImageFileCounter
       end
       return 'View files and Ruby files count is 0' if view_files_and_rb_files.count.zero?
 
-      view_files_and_rb_files.map do |file|
-        puts file
-      end
       view_files_and_rb_files
     end
 
