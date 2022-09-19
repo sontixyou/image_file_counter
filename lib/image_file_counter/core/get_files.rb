@@ -18,7 +18,7 @@ module ImageFileCounter
       select_image_files = files_path.select do |file|
         file.include?('.jpeg') || file.include?('.jpg') || file.include?('.png') || file.include?('.svg')
       end
-      return 'image files count is 0' if select_image_files.count.zero?
+      return 'Image files count is 0' if select_image_files.count.zero?
 
       select_image_files
     end
@@ -29,7 +29,7 @@ module ImageFileCounter
       view_files_and_rb_files = files_path.select do |file|
         file.include?('.rb') || file.include?('.html.haml') || file.include?('.slim') || file.include?('.erb')
       end
-      return 'view files and ruby files count is 0' if view_files_and_rb_files.count.zero?
+      return 'View files and Ruby files count is 0' if view_files_and_rb_files.count.zero?
 
       view_files_and_rb_files.map do |file|
         puts file
