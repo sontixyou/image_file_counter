@@ -16,7 +16,7 @@ module ImageFileCounter
       return ['nothings'] if files_path.nil?
 
       select_image_files = files_path.select do |file|
-        if file.include?('.jpeg') || file.include?('.jpg') || file.include?('.png') || file.include?('.svg')
+        if  file.include?('.webp') || file.include?('.jpeg') || file.include?('.jpg') || file.include?('.png') || file.include?('.svg')
           file.gsub!(/.[\/0-9a-zA-Z_-]+\/image\//, '')
         end
       end
