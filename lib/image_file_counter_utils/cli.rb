@@ -18,9 +18,9 @@ module ImageFileCounterUtils
     end
 
     desc 'view_files_and_ruby_files', 'Get view files and ruby files'
-    def get_view_files_and_ruby_files
+    def get_view_files_path
       files_name = ImageFileCounter::Core.generate_files_name
-      ImageFileCounter::Core.select_view_files_and_ruby_files(files_name)
+      ImageFileCounter::Core.select_view_files_path(files_name)
     end
 
     desc 'count_image_file_in_files', 'Count image file in files'

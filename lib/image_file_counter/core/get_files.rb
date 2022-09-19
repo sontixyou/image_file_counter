@@ -25,7 +25,7 @@ module ImageFileCounter
       select_image_files
     end
 
-    def self.select_view_files_and_ruby_files(files_path)
+    def self.select_view_files_path(files_path)
       return [] if files_path.nil?
 
       view_files_path = files_path.select do |file_path|
@@ -44,7 +44,7 @@ module ImageFileCounter
       # kojo: ********
       # aoki: ****
       files_name = generate_files_name
-      view_files_path = select_view_files_and_ruby_files(files_name)
+      view_files_path = select_view_files_path(files_name)
       imags_file_name = select_image_files(files_name)
       result = {}
 
