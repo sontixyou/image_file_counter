@@ -16,8 +16,8 @@ module ImageFileCounter
       return ['nothings'] if files_path.nil?
 
       select_image_files = files_path.select do |file|
-        if  file.include?('.webp') || file.include?('.jpeg') || file.include?('.jpg') || file.include?('.png') || file.include?('.svg')
-          file.gsub!(/.[\/0-9a-zA-Z_-]+\/image\//, '')
+        if file.include?('.webp') || file.include?('.jpeg') || file.include?('.jpg') || file.include?('.png') || file.include?('.svg')
+          file.gsub!(%r{.[/0-9a-zA-Z_-]+/image/}, '')
         end
       end
       return 'Image files count is 0' if select_image_files.count.zero?
@@ -48,7 +48,7 @@ module ImageFileCounter
       imags_file_name = select_image_files(files_name)
       result = {}
 
-      return puts "files_path is nil" if view_files_path.nil? || imags_file_name.nil?
+      return puts 'files_path is nil' if view_files_path.nil? || imags_file_name.nil?
 
       imags_file_name.each do |image|
         image_count = 0
@@ -61,9 +61,9 @@ module ImageFileCounter
         result = { image => image_count }
       end
 
-      puts "IMAGE COUNT RESULT"
-      result.each do |k,v|
-        puts "#{k}: #{"*" * v}"
+      puts 'IMAGE COUNT RESULT'
+      result.each do |k, v|
+        puts "#{k}: #{'*' * v}"
       end
     end
   end
