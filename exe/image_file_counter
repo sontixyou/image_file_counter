@@ -3,4 +3,4 @@
 
 require 'image_file_counter'
 
-ImageFileCounterUtils::CLI.start  # この行を追加
+ImageFileCounterUtils::CLI.start
