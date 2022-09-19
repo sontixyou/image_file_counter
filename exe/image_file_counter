@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
-require "image_file_counter"
+require 'image_file_counter'
 
 ImageFileCounterUtils::CLI.start  # この行を追加
