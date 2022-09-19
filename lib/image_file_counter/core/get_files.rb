@@ -29,7 +29,7 @@ module ImageFileCounter
       return [] if files_path.nil?
 
       view_files_and_rb_files = files_path.select do |file|
-        file.include?('.rb') || file.include?('.html.haml') || file.include?('.slim') || file.include?('.erb')
+        file.include?('.html.haml') || file.include?('.slim') || file.include?('.erb')
       end
       return 'View files and Ruby files count is 0' if view_files_and_rb_files.count.zero?
 
