@@ -2,6 +2,7 @@
 
 require 'image_file_counter/core/get_files'
 require 'thor'
+require 'open3'
 
 module ImageFileCounterUtils
   class CLI < Thor
@@ -37,6 +38,11 @@ module ImageFileCounterUtils
     def get_view_files_and_ruby_files
       files_name = ImageFileCounter::Core.get_files_name
       ImageFileCounter::Core.select_view_files_and_ruby_files(files_name)
+    end
+
+    desc 'count_image_file_in_files', 'count image file in files'
+    def count_image_file_in_files
+      ImageFileCounter::Core.count_images_in_view_file
     end
   end
 end
