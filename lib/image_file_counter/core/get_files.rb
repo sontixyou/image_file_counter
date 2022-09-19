@@ -62,8 +62,9 @@ module ImageFileCounter
         result = { image => image_count }
       end
 
+      puts "IMAGE COUNT RESULT"
       result.each do |k,v|
-        puts "#{k} : #{v}回使用されています"
+        puts "#{k}: #{"*" * v}"
       end
     end
   end
