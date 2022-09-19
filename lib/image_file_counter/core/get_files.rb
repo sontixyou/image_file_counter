@@ -3,13 +3,13 @@
 module ImageFileCounter
   class Core
     def self.generate_files_name
-      file_name_array = []
+      files_path = []
       Dir.glob('./**/*') do |path|
         next if FileTest.directory?(path)	# ディレクトリは無視
 
-        file_name_array << path
+        files_path << path
       end
-      file_name_array
+      files_path
     end
 
     def self.select_image_files(files_path)
@@ -20,7 +20,7 @@ module ImageFileCounter
           file.gsub!(%r{.[/0-9a-zA-Z_-]+/image/}, '')
         end
       end
-      return 'Image files count is 0' if select_image_files.count.zero?
+      return 'Image files count is 0' if select_image_files.count.zero? || select_image_files.nil?
 
       select_image_files
     end
@@ -28,12 +28,12 @@ module ImageFileCounter
     def self.select_view_files_and_ruby_files(files_path)
       return [] if files_path.nil?
 
-      view_files_and_rb_files = files_path.select do |file|
-        file.include?('.html.haml') || file.include?('.slim') || file.include?('.erb')
+      view_files_path = files_path.select do |file_path|
+        file_path.include?('.html.haml') || file_path.include?('.slim') || file_path.include?('.erb')
       end
-      return 'View files and Ruby files count is 0' if view_files_and_rb_files.count.zero?
+      return 'View files and Ruby files count is 0' if view_files_path.count.zero? || view_files_path.nil?
 
-      view_files_and_rb_files
+      view_files_path
     end
 
     def self.count_images_in_view_file
@@ -47,8 +47,6 @@ module ImageFileCounter
       view_files_path = select_view_files_and_ruby_files(files_name)
       imags_file_name = select_image_files(files_name)
       result = {}
-
-      return puts 'files_path is nil' if view_files_path.nil? || imags_file_name.nil?
 
       imags_file_name.each do |image|
         image_count = 0
