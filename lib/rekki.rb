@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require_relative 'rekkyo/version'
-require_relative 'rekkyo_utils/cli'
+require_relative 'rekki/version'
+require_relative 'rekki_utils/cli'
 
-module Rekkyo
+module Rekki
   class Error < StandardError; end
   # Your code goes here...
 end

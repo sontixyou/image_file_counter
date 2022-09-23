@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Rekkyo
+module Rekki
   class Core
     def self.generate_files_name
       files_path = []

@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-require_relative 'lib/rekkyo/version'
+require_relative 'lib/rekki/version'
 
 Gem::Specification.new do |spec|
-  spec.name = 'rekkyo'
-  spec.version = Rekkyo::VERSION
+  spec.name = 'rekki'
+  spec.version = Rekki::VERSION
   spec.authors = ['kenken']
   spec.email = ['angelbeatsviolin@gmail.com']
 
   spec.summary = 'count image files in view files'
   spec.description = 'one command can count image files in view files'
-  spec.homepage = 'https://github.com/sontixyou/rekkyo'
+  spec.homepage = 'https://github.com/sontixyou/rekki'
   spec.license = 'MIT'
   spec.required_ruby_version = '>= 2.7.0'
 
