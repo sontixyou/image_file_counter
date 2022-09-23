@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
-require_relative 'lib/image_file_counter/version'
+require_relative 'lib/rekkyo/version'
 
 Gem::Specification.new do |spec|
-  spec.name = 'image_file_counter'
-  spec.version = ImageFileCounter::VERSION
+  spec.name = 'rekkyo'
+  spec.version = Rekkyo::VERSION
   spec.authors = ['kenken']
   spec.email = ['angelbeatsviolin@gmail.com']
 
-  spec.summary = 'image file counter in directory'
-  spec.description = 'one command can count image files'
-  spec.homepage = 'https://github.com/sontixyou/image-file-counter'
+  spec.summary = 'count image files in view files'
+  spec.description = 'one command can count image files in view files'
+  spec.homepage = 'https://github.com/sontixyou/rekkyo'
   spec.license = 'MIT'
-  spec.required_ruby_version = '>= 2.6.0'
+  spec.required_ruby_version = '>= 2.7.0'
 
   spec.metadata['allowed_push_host'] = 'this is writting'
 
