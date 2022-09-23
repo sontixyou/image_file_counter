@@ -13,7 +13,7 @@ module Rekki
     end
 
     def self.select_image_files(files_path)
-      return ['nothings'] if files_path.nil?
+      return 'Image files count is 0' if files_path.nil?
 
       select_image_files = files_path.select do |file|
         if file.include?('.webp') || file.include?('.jpeg') || file.include?('.jpg') || file.include?('.png') || file.include?('.svg')
@@ -26,7 +26,7 @@ module Rekki
     end
 
     def self.select_view_files_path(files_path)
-      return [] if files_path.nil?
+      return 'View files and Ruby files count is 0' if files_path.nil?
 
       view_files_path = files_path.select do |file_path|
         file_path.include?('.html.haml') || file_path.include?('.slim') || file_path.include?('.erb')
