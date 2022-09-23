@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in image_file_counter.gemspec
+# Specify your gem's dependencies in rekkyo.gemspec
 gemspec
 
 gem 'rake', '~> 13.0'
