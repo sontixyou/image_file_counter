@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    image_file_counter (0.1.0)
+    rekki (0.1.0)
       thor
 
 GEM
@@ -47,9 +47,9 @@ PLATFORMS
 
 DEPENDENCIES
   debug
-  image_file_counter!
   minitest (~> 5.0)
   rake (~> 13.0)
+  rekki!
   rubocop
 
 BUNDLED WITH
