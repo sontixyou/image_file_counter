@@ -17,7 +17,7 @@ module Rekki
 
       select_image_files = files_path.select do |file|
         if file.include?('.webp') || file.include?('.jpeg') || file.include?('.jpg') || file.include?('.png') || file.include?('.svg')
-          file.gsub!(%r{.[/0-9a-zA-Z_-]+/image/}, '')
+          file.gsub!(%r{.[/0-9a-zA-Z_-]+/images/[/0-9a-zA-Z_-]+/}, '')
         end
       end
       return 'Image files count is 0' if select_image_files.count.zero? || select_image_files.nil?
