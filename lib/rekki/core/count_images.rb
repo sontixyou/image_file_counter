@@ -43,12 +43,19 @@ module Rekki
       # できれば、それをグラフ化したい。簡易的ならこんな感じ
       # kojo: ********
       # aoki: ****
+      start_time = Time.now
+      puts "start time: #{start_time}"
       files_name = generate_files_name
       view_files_path = select_view_files_path(files_name)
-      imags_file_name = select_image_files(files_name)
+      puts views_files_path and return if view_files_path.class != Array
+
+      image_files_name = select_image_files(files_name)
+      puts image_files_name and return if image_files_name.class != Array
+      # binding.break
+
       result = {}
 
-      imags_file_name.each do |image|
+      image_files_name.each do |image|
         image_count = 0
         view_files_path.each do |file_path|
           command = "rg \"#{image}\" #{file_path}"
@@ -63,6 +70,7 @@ module Rekki
       result.each do |k, v|
         puts "#{k}: #{'*' * v}"
       end
+      puts "end time: #{Time.now - start_time}"
     end
   end
 end
