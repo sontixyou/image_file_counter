@@ -14,13 +14,13 @@ module RekkiUtils
     desc 'get_images_files', 'Get image files'
     def get_image_files
       files_name = Rekki::Core.generate_files_name
-      rekki::Core.select_image_files(files_name)
+      Rekki::Core.select_image_files(files_name)
     end
 
     desc 'view_files_and_ruby_files', 'Get view files and ruby files'
     def get_view_files_path
       files_name = Rekki::Core.generate_files_name
-      rekki::Core.select_view_files_path(files_name)
+      Rekki::Core.select_view_files_path(files_name)
     end
 
     desc 'count_image_file_in_files', 'Count image file in files'
