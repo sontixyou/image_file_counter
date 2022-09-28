@@ -29,7 +29,7 @@ module Rekki
       return 'View files and Ruby files count is 0' if files_path.nil?
 
       view_files_path = files_path.select do |file_path|
-        file_path.include?('.html.haml') || file_path.include?('.slim') || file_path.include?('.erb')
+        file_path.include?('.html.haml') || file_path.include?('.slim') || file_path.include?('.erb') || file_path.include?('.html')
       end
       return 'View files and Ruby files count is 0' if view_files_path.count.zero? || view_files_path.nil?
 
