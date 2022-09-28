@@ -51,7 +51,6 @@ module Rekki
 
       image_files_name = select_image_files(files_name)
       puts image_files_name and return if image_files_name.class != Array
-      # binding.break
 
       result = {}
 
