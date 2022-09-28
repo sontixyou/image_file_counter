@@ -63,7 +63,7 @@ module Rekki
           stdout, stderr, status = Open3.capture3(command)
           image_count += stdout.split("\n").count
         end
-        result = { image => image_count }
+        result["#{image}"] = image_count
       end
 
       puts 'IMAGE COUNT RESULT'
