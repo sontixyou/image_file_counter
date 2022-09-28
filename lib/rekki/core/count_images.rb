@@ -17,7 +17,7 @@ module Rekki
 
       select_image_files = files_path.select do |file|
         if file.include?('.webp') || file.include?('.jpeg') || file.include?('.jpg') || file.include?('.png') || file.include?('.svg')
-          file.gsub!(%r{.[/0-9a-zA-Z_-]+/images/[/0-9a-zA-Z_-]+/}, '')
+          file.gsub!(%r{.[/0-9a-zA-Z_-]+/}, '')
         end
       end
       return 'Image files count is 0' if select_image_files.count.zero? || select_image_files.nil?
@@ -29,7 +29,7 @@ module Rekki
       return 'View files and Ruby files count is 0' if files_path.nil?
 
       view_files_path = files_path.select do |file_path|
-        file_path.include?('.html.haml') || file_path.include?('.slim') || file_path.include?('.erb')
+        file_path.include?('.html.haml') || file_path.include?('.slim') || file_path.include?('.erb') || file_path.include?('.html')
       end
       return 'View files and Ruby files count is 0' if view_files_path.count.zero? || view_files_path.nil?
 
@@ -51,7 +51,6 @@ module Rekki
 
       image_files_name = select_image_files(files_name)
       puts image_files_name and return if image_files_name.class != Array
-      # binding.break
 
       result = {}
 
@@ -63,7 +62,7 @@ module Rekki
           stdout, stderr, status = Open3.capture3(command)
           image_count += stdout.split("\n").count
         end
-        result = { image => image_count }
+        result["#{image}"] = image_count
       end
 
       puts 'IMAGE COUNT RESULT'
