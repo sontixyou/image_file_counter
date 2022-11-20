@@ -12,6 +12,8 @@ module Rekki
       files_path
     end
 
+    # rubocop:disable Metrics/CyclomaticComplexity
+    # rubocop:disable Metrics/PerceivedComplexity
     def self.select_image_files(files_path)
       return 'Image files count is 0' if files_path.nil?
 
@@ -24,7 +26,11 @@ module Rekki
 
       select_image_files
     end
+    # rubocop:enable Metrics/CyclomaticComplexity
+    # rubocop:enable Metrics/PerceivedComplexity
 
+    # rubocop:disable Metrics/CyclomaticComplexity
+    # rubocop:disable Metrics/PerceivedComplexity
     def self.select_view_files_path(files_path)
       return 'View files and Ruby files count is 0' if files_path.nil?
 
@@ -35,7 +41,12 @@ module Rekki
 
       view_files_path
     end
+    # rubocop:enable Metrics/CyclomaticComplexity
+    # rubocop:enable Metrics/PerceivedComplexity
 
+    # rubocop:disable Metrics/CyclomaticComplexity
+    # rubocop:disable Metrics/MethodLength
+    # rubocop:disable Metrics/AbcSize
     def self.count_images_in_view_file
       # select_view_files_and_ruby_filesからの返り値を使用して、それぞれのファイルでgrepを行う。
       # select_image_filesの画像がヒットするかを判別する。
@@ -71,5 +82,8 @@ module Rekki
       end
       puts "end time: #{Time.now - start_time}"
     end
+    # rubocop:enable Metrics/CyclomaticComplexity
+    # rubocop:enable Metrics/MethodLength
+    # rubocop:enable Metrics/AbcSize
   end
 end
