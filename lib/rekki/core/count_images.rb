@@ -75,6 +75,7 @@ module Rekki
     # rubocop:enable Metrics/MethodLength
     # rubocop:enable Metrics/AbcSize
 
+    # count_images_in_view_file is too slow. image_counter_in_all_views is Created with the goal of speeding up processing time.
     def self.image_counter_in_all_views
       require 'fileutils'
 
