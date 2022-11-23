@@ -50,8 +50,6 @@ module Rekki
     # rubocop:disable Metrics/MethodLength
     # rubocop:disable Metrics/AbcSize
     def self.count_images_in_view_file
-      start_time = Time.now
-      puts "start time: #{start_time}"
       files_name = generate_files_name
       view_files_path = select_view_files_path(files_name)
       image_files_name = select_image_files(files_name)
@@ -73,7 +71,6 @@ module Rekki
       result.each do |k, v|
         puts "#{k}: #{'*' * v}"
       end
-      puts "end time: #{Time.now - start_time}"
     end
     # rubocop:enable Metrics/MethodLength
     # rubocop:enable Metrics/AbcSize
