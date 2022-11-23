@@ -7,18 +7,18 @@ require 'open3'
 module RekkiUtils
   class CLI < Thor
     desc 'get_files_name', 'Get files'
-    def get_files_name
-      file_name_array = Rekki::Core.generate_files_name
+    def generate_files_name
+      Rekki::Core.generate_files_name
     end
 
     desc 'get_images_files', 'Get image files'
-    def get_image_files
+    def generate_image_files
       files_name = Rekki::Core.generate_files_name
       Rekki::Core.select_image_files(files_name)
     end
 
     desc 'view_files_and_ruby_files', 'Get view files and ruby files'
-    def get_view_files_path
+    def generate_view_files_path
       files_name = Rekki::Core.generate_files_name
       Rekki::Core.select_view_files_path(files_name)
     end
