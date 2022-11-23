@@ -27,5 +27,10 @@ module RekkiUtils
     def count_image_file_in_files
       Rekki::Core.count_images_in_view_file
     end
+
+    desc 'count_image_file_in_files_FIX-VERSION', 'Count image file in files_FIX-VERSION'
+    def image_counter_in_all_views
+      Rekki::Core.image_counter_in_all_views
+    end
   end
 end

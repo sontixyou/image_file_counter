@@ -85,5 +85,44 @@ module Rekki
     # rubocop:enable Metrics/CyclomaticComplexity
     # rubocop:enable Metrics/MethodLength
     # rubocop:enable Metrics/AbcSize
+
+    def self.image_counter_in_all_views
+      require 'fileutils'
+
+      files_name = generate_files_name
+      view_files_path = select_view_files_path(files_name)
+      image_files_path = select_image_files(files_name)
+      image_files_regex = Regexp.union(image_files_path)
+
+      result = search_image_files(view_files_path, image_files_regex)
+      unsued_image_files = image_files_path - result
+      report_result(unsued_image_files)
+    end
+
+    private
+
+    def search_image_files(view_files_path, image_files_regex)
+      result = []
+      view_files_path.each do |file_path|
+        File.open(file_path, 'r').each_line do |read_line|
+          hit_string = read_line.match(image_files_regex).to_s
+          result << hit_string unless hit_string.empty? || result.include?(hit_string)
+        end
+      end
+      result
+    end
+
+    def report_result(unsued_image_files)
+      puts 'UNUSED IMAGE IS NOTHING' and return if unsued_image_files.empty?
+
+      result_head_message = <<-SUMMARY
+        UNUSED IMAGES LIST
+        ===================
+      SUMMARY
+
+      puts result_head_message
+      unsued_image_files.each { |image| puts image }
+      puts '==================='
+    end
   end
 end
