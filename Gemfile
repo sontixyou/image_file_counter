@@ -11,5 +11,5 @@ gem 'debug'
 gem 'minitest', '~> 5.0'
 gem 'rubocop'
 group :development do
-  gem "ruby-lsp", require: false
+  gem 'ruby-lsp', require: false
 end
