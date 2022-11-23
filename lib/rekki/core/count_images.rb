@@ -2,6 +2,7 @@
 
 module Rekki
   class Core
+    IMAGE_FILE_TYPES = /.webp|.jpeg|.jpg|.png|.svg/.freeze
     def self.generate_files_name
       files_path = []
       Dir.glob('./**/*') do |path|
@@ -13,21 +14,17 @@ module Rekki
     end
 
     # rubocop:disable Metrics/CyclomaticComplexity
-    # rubocop:disable Metrics/PerceivedComplexity
     def self.select_image_files(files_path)
       return 'Image files count is 0' if files_path.nil?
 
       select_image_files = files_path.select do |file|
-        if file.include?('.webp') || file.include?('.jpeg') || file.include?('.jpg') || file.include?('.png') || file.include?('.svg')
-          file.gsub!(%r{.[/0-9a-zA-Z_-]+/}, '')
-        end
+        file.gsub!(%r{.[/0-9a-zA-Z_-]+/}, '') if file.include?('images') && file.match?(IMAGE_FILE_TYPES)
       end
-      return 'Image files count is 0' if select_image_files.count.zero? || select_image_files.nil?
+
+      puts 'Image files count is 0' and return if select_image_files.count.zero? || select_image_files.nil?
 
       select_image_files
     end
-    # rubocop:enable Metrics/CyclomaticComplexity
-    # rubocop:enable Metrics/PerceivedComplexity
 
     # rubocop:disable Metrics/CyclomaticComplexity
     # rubocop:disable Metrics/PerceivedComplexity
